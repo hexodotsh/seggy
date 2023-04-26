@@ -113,20 +113,23 @@ ping_sweep()
 
 	nmap -T5 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_sweep_001.txt -sn -n --packet-trace --disable-arp-ping > /dev/null &
 	wait
-	printf "${BLUE}Ping Scan 1 of 5 Done${NC}\n"
+	printf "${BLUE}Ping Scan 1 of 6 Done${NC}\n"
 	nmap -T5 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_sweep_002.txt -sn -n --packet-trace -PE --disable-arp-ping > /dev/null &
 	wait
-	printf "${GREEN}Ping Scan 2 of 5 Done${NC}\n"
+	printf "${GREEN}Ping Scan 2 of 6 Done${NC}\n"
 	nmap -T5 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_sweep_003.txt -sn -n --packet-trace -PP --disable-arp-ping > /dev/null &
 	wait
-	printf "${BLUE}Ping Scan 3 of 5 Done${NC}\n"
+	printf "${BLUE}Ping Scan 3 of 6 Done${NC}\n"
 	nmap -T5 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_sweep_004.txt -sn -n --packet-trace -PM --disable-arp-ping > /dev/null &
 	wait
-	printf "${GREEN}Ping Scan 4 of 5 Done${NC}\n"
+	printf "${GREEN}Ping Scan 4 of 6 Done${NC}\n"
 	nmap -T5 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_sweep_005.txt -sn -n --packet-trace -PO2 --disable-arp-ping > /dev/null &
 	wait
-	printf "${BLUE}Ping Scan 5 of 5 Done${NC}\n"
+	printf "${BLUE}Ping Scan 5 of 6 Done${NC}\n"
 	wait
+	nmap -T2 -e $ETH -iL $SCOPE -oN $PING_PATH/ping_sweep_006.txt -sn -n --packet-trace -PY$SCTP --disable-arp-ping > /dev/null &
+        wait
+        printf "${BLUE}Ping Scan 6 of 6 Done${NC}\n"
 
 	merge_ping_sweep
 
